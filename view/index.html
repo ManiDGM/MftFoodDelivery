@@ -13,7 +13,7 @@
       <!-- logo -->
        <h1 class="logo">FoodDelivery</h1>
 
-      <!-- list of menus -->
+      <!-- list of menus -->                  <!-- TODO: check icon -->
       <div class="sidebar-menus">
           <a href="#"><ion-icon name="storefront-outline"></ion-icon>Home</a>
           <a href="#"><ion-icon name="receipt-outline"></ion-icon>Bills</a>
@@ -21,9 +21,32 @@
           <a href="#"><ion-icon name="chatbubbles-outline"></ion-icon>Contact Us</a>
       </div>
       <!-- logout -->
+      <div class="sidebar-logout">
+          <a href="#"><ion-icon name="log-out-outline"></ion-icon>Logout</a>
+      </div>
   </div>
 
   <!-- main -->
+  <div class="main">
+      <!-- main navbar -->
+      <div class="main-navbar">
+          <!-- menu when appear on mobile -->
+          <ion-icon class="menu-toggle" name="menu-outline"></ion-icon>
+          <!-- search bar -->
+          <div class="search">
+              <input type="text" placeholder="What you want to eat?">
+              <button class="search-btn ">Search</button>
+          </div>
+          <!-- profile icon on left side of navbar  -->
+          <div class="profile">
+              <a class="cart" href="#"><ion-icon name="cart-outline"></ion-icon></a>
+              <a class="user" href="#"><ion-icon name="person-outline"></ion-icon></a>
+          </div>
+      </div>
+
+      <!-- main highlight -->
+      <!-- main menus/ order -->
+  </div>
 </body>
 <script type="madule" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
