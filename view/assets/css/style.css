@@ -209,6 +209,7 @@ body{
     overflow-x: hidden;
     width: 100%;
     height: 100px;
+    gap: 1.2rem;
 }
 .filter-card{
     display: flex;
@@ -254,7 +255,7 @@ body{
 }
 .detail-wrapper{
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
     width: 100%;
     margin-top: 1rem;
     gap: 2%;
@@ -271,7 +272,7 @@ body{
 }
 .detail-img{
     width: 100%;
-    height: 180%;
+    height: 180px;
     border-radius: 8px;
     object-fit: cover;
     object-position: center;
@@ -286,8 +287,8 @@ body{
 }
 .detail-sub{
     font-size: 12px;
-    color: var(--greyColor);
-    letter-spacing: 0.5rem;
+    color: var(--darkGreyColor);
+    letter-spacing: 0.5px;
     margin: 1% 0;
 }
 .price{
@@ -306,6 +307,32 @@ body{
     color: var(--primaryColor);
 }
 .detail-card:hover , .price{
-    letter-spacing: 1.5rem;
+    letter-spacing: 1.5px;
 }
-
+/* mobile view */
+ @media screen and (max-width: 640px){
+    .sidebar{
+        display: none;
+    }
+    .main{
+        margin-left: 0;
+    }
+    .menu-toggle{
+        display: block;
+        text-decoration: none;
+        font-size: 20px;
+        background-color: var(--whiteColor);
+        color: var(--primaryColor);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 10px;
+        height: 40px;
+        border-radius: 50%;
+        z-index: 3;
+    }
+    .sidebar.active{
+        display: flex;
+        z-index: 10;
+    }
+}
