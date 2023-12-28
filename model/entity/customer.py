@@ -1,5 +1,5 @@
 from model.entity.base import Base
-from sqlalchemy import Integer,String,Column,Boolean,Date,Datetime
+from sqlalchemy import Integer,String,Column,Boolean,Date,DateTime
 class Customer(Base):
     __tablename__="customer_tbl"
 
