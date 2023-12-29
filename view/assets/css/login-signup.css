@@ -39,6 +39,7 @@ form{
     margin-top: 30px;
 }
 form .field{
+    position: relative;
     height: 50px;
     width: 100%;
     margin-top: 20px;
@@ -55,6 +56,16 @@ form .field{
     padding: 0 15px;
     border: 1px solid var(--softGreenColor);
 }
+.eye-icon{
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: var(--darkGreyColor);
+    cursor: pointer;
+    padding: 5px;
+}
 .form-link{
     text-align: center;
     margin-top: 10px;
@@ -64,6 +75,7 @@ form .field{
     font-weight: 400;
 }
 .form-link a{
+    color: var(--primaryColor);
     text-decoration: none;
 }
 .form-link a:hover{
