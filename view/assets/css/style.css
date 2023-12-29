@@ -221,7 +221,7 @@ body{
     background-color: var(--whiteColor);
     color: var(--blackColor);
     border-radius: 8px;
-    border: 1px soid var(--softGreenColor);
+    border: 1px solid var(--softGreenColor);
     font-size: 14px;
     cursor: pointer;
 }
@@ -240,7 +240,7 @@ body{
     background-color: var(--primaryColor);
     color: var(--whiteColor);
 }
-.filter-card:hover, .filter-icon{
+.filter-card:hover  .filter-icon{
     background-color: var(--whiteColor);
 }
 .divider{
@@ -300,17 +300,17 @@ body{
 .detail-card:hover{
     box-shadow: rgba(149,157,165,0.2) 0px 8px 24px;
 }
-.detail-card:hover , .detail-img{
+.detail-card:hover  .detail-img{
     filter: opacity(1);
 }
-.detail-card:hover , .detail-name h4{
+.detail-card:hover  .detail-name h4{
     color: var(--primaryColor);
 }
-.detail-card:hover , .price{
+.detail-card:hover  .price{
     letter-spacing: 1.5px;
 }
 /* mobile view */
- @media screen and (max-width: 640px){
+@media screen and (max-width:640px){
     .sidebar{
         display: none;
     }
@@ -323,7 +323,7 @@ body{
         font-size: 20px;
         background-color: var(--whiteColor);
         color: var(--primaryColor);
-        display: flex;
+         display: flex;
         justify-content: center;
         align-items: center;
         padding: 0 10px;
