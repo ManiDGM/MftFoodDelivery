@@ -3,7 +3,7 @@ const mobile = document.querySelector('.menu-toggle');
 const mobileLink = document.querySelector('.sidebar');
 
 mobile.addEventListener("click", function (){
-    mobile.clickList.toggle(is-active);
+    mobile.classList.toggle("is-active");
     mobileLink.classList.toggle("active");
 })
 
@@ -19,35 +19,35 @@ mobileLink.addEventListener("click", function (){
 // move menu left and right when click on back  and next
 var step = 100;
 var stepFilter = 60;
-var scrolling = true;
+var scrolling= true;
 
-$(".back").bind("click", function (e){
+$(".back").bind("click" , function(e){
     e.preventDefault();
-    $(".hilight-wrapper").animate({
+    $(".highlight-wrapper").animate({
         scrollLeft: "-=" + step + "px"
     });
 });
-
-$(".next").bind("click", function (e){
+$(".next").bind("click" , function (e){
     e.preventDefault();
-    $(".hilight-wrapper").animate({
-        scrollLeft: "-=" + step + "px"
+    $(".highlight-wrapper").animate({
+        scrollLeft: "+=" + step + "px"
     });
 });
 
 // when click back and next on menu filters
-$(".back-menus").bind("click", function (e){
+$(".back-menus").bind("click" , function(e){
     e.preventDefault();
-    $(".hilight-wrapper").animate({
+    $(".filter-wrapper").animate({
         scrollLeft: "-=" + stepFilter + "px"
     });
 });
 
-$(".next-menus").bind("click", function (e){
+$(".next-menus").bind("click" , function (e){
     e.preventDefault();
-    $(".hilight-wrapper").animate({
-        scrollLeft: "-=" + stepFilter + "px"
+    $(".filter-wrapper").animate({
+        scrollLeft: "+=" + stepFilter + "px"
     });
 });
+
 
 
