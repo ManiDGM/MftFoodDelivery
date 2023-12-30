@@ -14,7 +14,7 @@
     outline: none;
     font-family: 'Open Sans', sans-serif;
 }
-.container-forms{
+.container{
     height: 100vh;
     width: 100%;
     display: flex;
@@ -22,7 +22,7 @@
     justify-content: center;
     background-color: var(--softGreenColor);
 }
-.form-login{
+.form{
     max-width: 430px;
     width: 100%;
     padding: 30px;
@@ -87,4 +87,9 @@ form .field{
 }
 .field button{
     border-radius: 50px;
+}
+@media screen and (max-width:640px){
+    .form{
+        padding: 15px 10px;
+    }
 }
