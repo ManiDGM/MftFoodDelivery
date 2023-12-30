@@ -14,7 +14,7 @@ class DatabaseManager:
         if not database_exists('mysql+pymysql://root:root123@localhost:3306/MftFoodDelivery'):
             create_database('mysql+pymysql://root:root123@localhost:3306/MftFoodDelivery')
 
-        self.engine=create_engine('mysql+pymysql: //root: root123@localhost:3306/MftFoodDelivery')
+        self.engine=create_engine('mysql+pymysql://root:root123@localhost:3306/MftFoodDelivery')
 
        #create Tables  
 

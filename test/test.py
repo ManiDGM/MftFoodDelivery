@@ -3,5 +3,5 @@ from model.entity.customer import Customer
 
 da=DatabaseManager()
 
-customer=Customer(1,"ali","alipour")
+customer=Customer(2,"ali","alipour")
 da.save(customer)
