@@ -4,7 +4,6 @@ const forms = document.querySelector(".forms"),
 
 
 // show/hide password when click on button
-
 pwShowHide.forEach(eyeIcon => {
     eyeIcon.addEventListener("click" ,() => {
         let pwFields = eyeIcon.parentElement.parentElement.querySelectorAll(".password");
