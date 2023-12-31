@@ -27,8 +27,9 @@ header .shopping{
     text-align: right;
 }
 header .shopping img{
+    border: 3px solid var(--primaryColor);
     width: 40px;
-    border-radius: 40%;
+    border-radius: 50%;
 }
 header .shopping span{
     background-color: var(--redColor);
@@ -84,8 +85,8 @@ header .shopping span{
     font-weight: bold;
     cursor: pointer;
 }
-.card .checkOut:nth-child(2){
-    background-color: var(--primaryColor);
+.card .checkOut div:nth-child(2){
+    background-color: var(--secondaryColor);
     color: var(--greyColor);
 }
 .active .card{
@@ -93,5 +94,4 @@ header .shopping span{
 }
 .active .container{
     transform: translateX(-200px);
-
 }
