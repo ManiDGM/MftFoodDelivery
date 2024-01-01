@@ -5,7 +5,7 @@ from model.entity.base import Base1
 
 
 
-class DatabaseManager:
+class DataBaseManager:
     #create database
 
 
@@ -58,5 +58,5 @@ class DatabaseManager:
         return entity
 
 
-
-
+def or_():
+    return None
