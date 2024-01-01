@@ -2,8 +2,8 @@ from model.entity.base import Base1
 from sqlalchemy import Integer, String, Column, Boolean, Date, DateTime,Float
 
 
-class Customer(Base1):
-    __tablename__ = "customer_tbl"
+class Menu(Base1):
+    __tablename__ = "Menu_item"
 
     id = Column(Integer, primary_key=True)
     item_name=Column(String(45))

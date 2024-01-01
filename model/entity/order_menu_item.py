@@ -1,9 +1,8 @@
 from model.entity.base import Base1
 from sqlalchemy import Integer, String, Column, Boolean, Date, DateTime
 
-
-class Customer(Base1):
-    __tablename__ = "customer_tbl"
+class Order(Base1):
+    __tablename__ = "order_menu_item"
 
     id = Column(Integer, primary_key=True)
     food_order_id=Column(Integer)
