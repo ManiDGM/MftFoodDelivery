@@ -62,7 +62,7 @@ function toggleSidebar() {
                 sidebar.style.right = "0";
                 content.style.marginRight = "250px";
             }
-        }
+}
 
 
 
