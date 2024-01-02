@@ -59,3 +59,7 @@ class DataBaseManager:
 
 def or_():
     return None
+
+
+def and_():
+    return None
