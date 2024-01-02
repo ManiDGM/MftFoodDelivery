@@ -57,6 +57,5 @@ class DataBaseManager:
         self.session.close()
         return entity
 
-
 def or_():
     return None
