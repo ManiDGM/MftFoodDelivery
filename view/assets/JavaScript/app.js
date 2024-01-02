@@ -48,6 +48,3 @@ $(".next-menus").bind("click" , function (e){
         scrollLeft: "+=" + stepFilter + "px"
     });
 });
-
-
-
