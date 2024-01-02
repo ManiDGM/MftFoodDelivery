@@ -26,7 +26,6 @@
           <a href="#"><ion-icon name="log-out-outline"></ion-icon>Logout</a>
       </div>
   </div>
-
   <!-- main -->
   <div class="main">
       <!-- main navbar -->
@@ -39,10 +38,9 @@
               <button class="search-btn ">Search</button>
           </div>
           <!-- profile icon on left side of navbar  -->
-          <div class="profile">
-              <a class="cart" href="#"><ion-icon name="cart-outline"></ion-icon></a>
-              <a class="user" href="#"><ion-icon name="person-outline"></ion-icon></a>
-          </div>
+          <div class="toggle-btn" onclick="toggleSidebar()">
+            <span>&#9776;</span> <!-- Hamburger icon -->
+        </div>
       </div>
 
       <!-- main highlight -->
@@ -143,8 +141,8 @@
                           <h4>Shrimp Soap</h4>
                           <p class="detail-sub">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
                           <p class="price">$152.00</p>
+                              <button onclick="addToCart('Shrimp Soap', 152.00)">Add to Cart</button>
                       </div>
-                      <ion-icon class="detail-favorites" name="bookmark-outline"></ion-icon>
                       </div>
                   </div>
                   <div class="detail-card">
@@ -154,8 +152,8 @@
                           <h4>Burger</h4>
                           <p class="detail-sub">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
                           <p class="price">$35.00</p>
+                              <button onclick="addToCart('Burger', 35.00)">Add to Cart</button>
                       </div>
-                      <ion-icon class="detail-favorites" name="bookmark-outline"></ion-icon>
                       </div>
                   </div>
                   <div class="detail-card">
@@ -165,8 +163,8 @@
                           <h4>Pizza</h4>
                           <p class="detail-sub">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
                           <p class="price">$65.75</p>
+                              <button onclick="addToCart('Pizza', 65.75)">Add to Cart</button>
                       </div>
-                      <ion-icon class="detail-favorites" name="bookmark-outline"></ion-icon>
                       </div>
                   </div>
                   <div class="detail-card">
@@ -176,8 +174,8 @@
                           <h4>Cafe Latte</h4>
                           <p class="detail-sub">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
                           <p class="price">$20.00</p>
+                              <button onclick="addToCart('Cafe Latte', 20.00)">Add to Cart</button>
                       </div>
-                      <ion-icon class="detail-favorites" name="bookmark-outline"></ion-icon>
                       </div>
                   </div>
                   <div class="detail-card">
@@ -187,8 +185,8 @@
                           <h4>Salad</h4>
                           <p class="detail-sub">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
                           <p class="price">$42.50</p>
+                              <button onclick="addToCart('Salad', 42.50)">Add to Cart</button>
                       </div>
-                      <ion-icon class="detail-favorites" name="bookmark-outline"></ion-icon>
                       </div>
                   </div>
                   <div class="detail-card">
@@ -198,17 +196,28 @@
                           <h4>Sea Food</h4>
                           <p class="detail-sub">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
                           <p class="price">$152.75</p>
+                              <button onclick="addToCart('Sea Food', 152.75)">Add to Cart</button>
                       </div>
-                      <ion-icon class="detail-favorites" name="bookmark-outline"></ion-icon>
                       </div>
                   </div>
               </div>
           </div>
       </div>
   </div>
+  <!-- shopping cart -->
+  <div id="cart" class="right-sidebar">
+        <h2>Shopping Cart</h2>
+        <ul id="cart-items">
+            <!-- Cart items will be dynamically added here -->
+        </ul>
+        <div id="total">
+            <!-- Total will be dynamically added here -->
+        </div>
+    </div>
 </body>
 <script type="madule" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script src="https://unpkg.com/ionicons@latest/dist/ionicons.js"></script>
 <script src="assets/JavaScript/jquery-2.2.4.min.js"></script>
 <script src="assets/JavaScript/app.js"></script>
+<script src="assets/JavaScript/shoppingCart.js"></script>
 </html>
