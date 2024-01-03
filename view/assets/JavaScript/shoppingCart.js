@@ -53,7 +53,7 @@ function updateCartUI() {
 
 function toggleSidebar() {
             var sidebar = document.querySelector('.right-sidebar');
-            var content = document.querySelector('content');
+            var content = document.querySelector('.main');
 
             if (right-sidebar.style.right === "0px") {
                 sidebar.style.right = "-250px";
