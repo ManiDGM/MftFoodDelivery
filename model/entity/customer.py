@@ -1,3 +1,5 @@
+from sqlalchemy.orm import relationship
+
 from model.entity.base import Base1
 from sqlalchemy import Integer, String, Column, Boolean, Date, DateTime
 
@@ -11,6 +13,7 @@ class Customer(Base1):
     gender = Column(Boolean)
     email = Column(String(500), unique=True)
     password = Column(String(500))
+    posts = relationship("Food", back_populates="Customer")
 
     def __init__(self, id, first_name, last_name, gender, email, password):
         self.id = id
@@ -20,5 +23,3 @@ class Customer(Base1):
         self.email = email
         self.password = password
 
-    def __repr__(self):
-        return str(self.__dict__)

@@ -1,24 +1,23 @@
+import datetime
 from sqlalchemy.orm import relationship
 from model.entity.base import Base1
-from sqlalchemy import Integer,String,Column,Boolean,Float,Date,DateTime,ForeignKey
+from sqlalchemy import Integer, String, Column, Boolean, Float, Date, DateTime, ForeignKey
+
 
 class Food(Base1):
+    __tablename__ = "foodorder_tbl"
 
-    __tablename__="foodorder_tbl"
-    id=Column(Integer , primary_key=True)
-    customer_id=Column(Integer,ForeignKey("customer.id"))
-    customer = relationship("Customer")
-    status=Column(Boolean)
-    datetime=Column(DateTime)
-    total_amount=Column(Float)
+    id = Column(Integer, primary_key=True)
+    customer_id = Column(Integer, ForeignKey("customer_tbl.id"))
+    status = Column(Boolean)
+    date_time = Column(DateTime, default=datetime.now())
+    total_amount = Column(Float)
 
+    customer = relationship("model.entity.customer.Customer", back_populates="Foods")
 
-    def __init__(self,id,customer_id,status,datetime,total_amount):
-        self.id=id
-        self.customer_id=customer_id
-        self.status=status
-        self.datetime=datetime
-        self.total_amount=total_amount
-
-    def __repr__(self):
-        return  str(self.__dict__)
+    def __init__(self, id , customer_id, status, date_time, total_amount):
+        self.id = id
+        self.customer_id = customer_id
+        self.status = status
+        self.date_time = date_time
+        self.total_amount = total_amount
