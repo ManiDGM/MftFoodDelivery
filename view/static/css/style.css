@@ -173,3 +173,8 @@ button:hover{
     cursor: pointer;
     color: #333;
 }
+@media screen and (max-width:640px){
+    .form{
+        padding: 15px 10px;
+    }
+}
