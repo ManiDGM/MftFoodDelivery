@@ -1,10 +1,10 @@
 import datetime
 from sqlalchemy.orm import relationship
-from model.entity.base import Base1
+from model.entity import *
 from sqlalchemy import Integer, String, Column, Boolean, Float, Date, DateTime, ForeignKey
 
 
-class Food(Base1):
+class Food(Base):
     __tablename__ = "foodorder_tbl"
 
     id = Column(Integer, primary_key=True)

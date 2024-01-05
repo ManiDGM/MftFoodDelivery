@@ -1,6 +1,5 @@
 from model.da.database import DataBaseManager, and_, or_
 from model.entity import *
-from model.entity.customer import Customer
 
 
 class CustomerDa(DataBaseManager):

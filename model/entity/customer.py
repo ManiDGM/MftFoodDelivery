@@ -1,10 +1,9 @@
 from sqlalchemy.orm import relationship
-
-from model.entity.base import Base1
+from model.entity import *
 from sqlalchemy import Integer, String, Column, Boolean, Date, DateTime
 
 
-class Customer(Base1):
+class Customer(Base):
     __tablename__ = "customer_tbl"
 
     id = Column(Integer, primary_key=True)

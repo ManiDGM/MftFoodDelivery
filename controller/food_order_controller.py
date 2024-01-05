@@ -1,50 +1,56 @@
+from controller import *
+from model.entity import *
+from model.da import *
+
+
 class FoodOrderController:
     @classmethod
-    def save (cls,id,customer_id,total_amount)
+    def save(cls, id, customer_id, total_amount):
         try:
-            da = FoodOrder()
-            if not da.find_by_customer_id(customer_id)
-               FoodOrder =FoodOrder(id,customer_id,total_amount)
-               da.save(FoodOrder)
-               return True,FoodOrder
-             else:
-                  raise DuplicatecustomeridError("Duplicate customer")
+            da = FoodorderDa()
+            if not da.find_by_customer_id(customer_id):
+                foodorder = FoodorderDa(id, customer_id, total_amount)
+                da.save(foodorder)
+                return True, foodorder
+            else:
+                raise DuplicateCustomerError("Duplicate customer")
 
         except Exception as e:
-            return False,str(e)
+            return False, str(e)
+
     @classmethod
-    def remove(cls,id):
+    def remove(cls, id):
         try:
-            da = FoodOrderDa()
-            FoodOrder = da.find_by_id(FoodOrder,id)
-            return True,da.remove(FoodOrder)
+            da = FoodorderDa()
+            foodorder = da.find_by_id(FoodorderDa, id)
+            return True, da.remove(foodorder)
         except Exception as e:
-            return False,str(e)
+            return False, str(e)
 
     @classmethod
     def find_all(cls):
         try:
-            da = FoodOrderDa()
-            return True,da.find_all(FoodOrder)
+            da = FoodorderDa()
+            return True, da.find_all(FoodorderDa)
         except Exception as e:
-            return False,str(e)
+            return False, str(e)
 
     @classmethod
-    def find_by_id(cls,id):
-        da = FoodOrderDa()
-        FoodOrder = da.find_by_id(FoodOrder,id)
-        if FoodOrder:
-            return True,FoodOrder
-        else:
-            raise NoContentError("There is no order!")
-        except Exception as e:
-             return False,str(e)
-
-    @classmethod
-    def find_by_customer_id(cls,customer_id):
+    def find_by_id(cls, id):
         try:
-            da = FoodOrderDa()
-            return True,da.find_by_customer_id(customer_id)
+            da = FoodorderDa()
+            foodorder = da.find_by_id(FoodorderDa, id)
+            if FoodorderDa:
+                return True, foodorder
+            else:
+                raise NoContentError("There is no order!")
         except Exception as e:
-            return False,str(e)
+            return False, str(e)
 
+    @classmethod
+    def find_by_customer_id(cls, customer_id):
+        try:
+            da = FoodorderDa()
+            return True, da.find_by_customer_id(customer_id)
+        except Exception as e:
+            return False, str(e)

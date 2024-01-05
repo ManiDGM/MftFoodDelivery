@@ -1,11 +1,5 @@
-from sqlalchemy import and_, between, or_
-from model.da.database import *
 from model.entity import *
-
 from model.da.database import DataBaseManager, and_
-from model.entity.customer import Customer
-from model.entity.food_order import Food
-
 
 class FoodorderDa(DataBaseManager):
     def find_by_customer_id(self, customer_id):
@@ -25,3 +19,10 @@ class FoodorderDa(DataBaseManager):
         result = self.session.query(Food).filter(Food.date_time == date_time)
         self.session.close()
         return result
+
+    def find_by_order_item(self, order_item):
+        self.make_engine()
+        result = self.session.query(Food).filter(Food.order_item== order_item)
+        self.session.close()
+        return result
+

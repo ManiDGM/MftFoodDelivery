@@ -1,10 +1,10 @@
 from sqlalchemy.orm import relationship
 
-from model.entity.base import Base1
+from model.entity import *
 from sqlalchemy import Integer, String, Column, Boolean, Date, DateTime, ForeignKey
 
 
-class Order(Base1):
+class Order(Base):
     __tablename__ = "order_menu_item"
 
     id = Column(Integer, primary_key=True)

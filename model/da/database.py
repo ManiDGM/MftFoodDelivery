@@ -1,7 +1,8 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy_utils import create_database, database_exists
-from model.entity.base import Base1
+from model.da import *
+from model.entity import *
 
 
 class DataBaseManager:
@@ -16,7 +17,7 @@ class DataBaseManager:
 
         # create Tables
 
-        Base1.metadata.create_all(self.engine)
+        Base.metadata.create_all(self.engine)
 
         # create session
         Session = sessionmaker(bind=self.engine)
