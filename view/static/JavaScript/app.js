@@ -1,50 +1,84 @@
-// showing navbar when click menu on mobile view
-const mobile = document.querySelector('.menu-toggle');
-const mobileLink = document.querySelector('.sidebar');
-
-mobile.addEventListener("click", function (){
-    mobile.classList.toggle("is-active");
-    mobileLink.classList.toggle("active");
-})
-
-// close menu when click
-mobileLink.addEventListener("click", function (){
-    const menuBars = document.querySelector(".is-active");
-    if (window.innerWidth<=768 && menuBars){
-        mobile.classList.toggle("is-active");
-        mobileLink.classList.toggle("active");
+const product = [
+    {
+        id: 0,
+        image: '../view/static/img//burger.jpg',
+        title: 'burger',
+        price: 32,
+    },
+    {
+        id: 1,
+        image: '../view/static/img//pizza.jpg',
+        title: 'pizza',
+        price: 20,
+    },
+    {
+        id: 2,
+        image: '../view/static/img//salad.jpg',
+        title: 'salad',
+        price: 15,
+    },
+    {
+        id: 3,
+        image: '../view/static/img//seafood.jpg',
+        title: 'sea food',
+        price: 75,
     }
-})
+];
+const categories = [...new Set(product.map((item)=>
+    {return item}))]
+    let i=0;
+document.getElementById('root').innerHTML = categories.map((item)=>
+{
+    var {image, title, price} = item;
+    return(
+        `<div class='box'>
+            <div class='img-box'>
+                <img class='images' src=${image}></img>
+            </div>
+        <div class='bottom'>
+        <p>${title}</p>
+        <h2>$ ${price}.00</h2>`+
+        "<button onclick='addtocart("+(i++)+")'>Add to cart</button>"+
+        `</div>
+        </div>`
+    )
+}).join('')
 
-// move menu left and right when click on back  and next
-var step = 100;
-var stepFilter = 60;
-var scrolling= true;
+var cart =[];
 
-$(".back").bind("click" , function(e){
-    e.preventDefault();
-    $(".highlight-wrapper").animate({
-        scrollLeft: "-=" + step + "px"
-    });
-});
-$(".next").bind("click" , function (e){
-    e.preventDefault();
-    $(".highlight-wrapper").animate({
-        scrollLeft: "+=" + step + "px"
-    });
-});
+function addtocart(a){
+    cart.push({...categories[a]});
+    displaycart();
+}
+function delElement(a){
+    cart.splice(a, 1);
+    displaycart();
+}
 
-// when click back and next on menu filters
-$(".back-menus").bind("click" , function(e){
-    e.preventDefault();
-    $(".filter-wrapper").animate({
-        scrollLeft: "-=" + stepFilter + "px"
-    });
-});
+function displaycart(){
+    let j = 0, total=0;
+    document.getElementById("count").innerHTML=cart.length;
+    if(cart.length==0){
+        document.getElementById('cartItem').innerHTML = "Your cart is empty";
+        document.getElementById("total").innerHTML = "$ "+0+".00";
+    }
+    else{
+        document.getElementById("cartItem").innerHTML = cart.map((items)=>
+        {
+            var {image, title, price} = items;
+            total=total+price;
+            document.getElementById("total").innerHTML = "$ "+total+".00";
+            return(
+                `<div class='cart-item'>
+                <div class='row-img'>
+                    <img class='rowimg' src=${image}>
+                </div>
+                <p style='font-size:12px;'>${title}</p>
+                <h2 style='font-size: 15px;'>$ ${price}.00</h2>`+
+                "<i class='fa-solid fa-trash' onclick='delElement("+ (j++) +")'></i></div>"
+            );
+        }).join('');
+    }
 
-$(".next-menus").bind("click" , function (e){
-    e.preventDefault();
-    $(".filter-wrapper").animate({
-        scrollLeft: "+=" + stepFilter + "px"
-    });
-});
+    
+}
