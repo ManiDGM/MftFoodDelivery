@@ -1,4 +1,4 @@
-from model.da.database import DataBaseManager, and_, or_
+from model.da.database import *
 from model.entity import *
 
 

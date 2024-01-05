@@ -19,7 +19,7 @@ class OrderMenuItemController:
             return False, str(e)
 
     @classmethod
-    def remove(cls, food_order_id):
+    def remove(cls, id):
         try:
             da = OrderMenuDa()
             ordermenuitem = da.find_by_food_order_id(OrderMenuDa, id)

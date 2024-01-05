@@ -1,11 +1,14 @@
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, and_, or_
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy_utils import create_database, database_exists
-from model.da import *
 from model.entity import *
 
 
 class DataBaseManager:
+    def __init__(self):
+        self.session = None
+        self.engine = None
+
     # create database
 
     def make_engine(self):
@@ -55,11 +58,3 @@ class DataBaseManager:
         entity = self.session.get(class_name, id)
         self.session.close()
         return entity
-
-
-def or_():
-    return None
-
-
-def and_():
-    return None

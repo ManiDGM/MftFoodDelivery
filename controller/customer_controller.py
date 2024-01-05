@@ -18,13 +18,13 @@ class CustomerController:
             return False, str(e)
 
     @classmethod
-    def edit(cls, id, name, family, email, password, username=None):
+    def edit(cls, id, first_name, last_name, password, email):
         try:
             da = CustomerDa()
-            customer = Customer(name, family, username, password)
+            customer = Customer(first_name, last_name, email, password)
             customer.id = id
-            da.edit(Customer)
-            return True, Customer
+            da.edit(customer)
+            return True, customer
         except Exception as e:
             e.with_traceback()
             return False, str(e)
@@ -52,7 +52,7 @@ class CustomerController:
             da = CustomerDa()
             customer = da.find_by_id(Customer, id)
             if customer:
-                return True, Customer
+                return True,customer
             else:
                 raise NoContentError("There is no Customer!")
         except Exception as e:
@@ -72,7 +72,7 @@ class CustomerController:
             da = CustomerDa()
             customer = da.find_by_email_password(email, password)
             if (customer):
-                return True, Customer
+                return True, customer
             else:
                 raise AccessDeniedError("wrong email/password")
         except Exception as e:
