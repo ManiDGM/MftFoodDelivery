@@ -31,8 +31,8 @@ from model.entity import *
 # print(CustomerController.login("A@A.com","A1238"))
 
 
-print(FoodOrderController.save(16, True, datetime.now(), 158.555252))
-
+#print(FoodOrderController.save(16, True, datetime.now(), 158.555252))
+FoodOrderController.edit(8,16,True,datetime.now(),1200)
 # MenuController.save("bergurww",100000)
 # MenuController.edit(8,"bergur111",2222)
 # MenuController.remove(8)

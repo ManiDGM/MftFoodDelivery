@@ -1,4 +1,4 @@
-'''from flask import Flask, render_template, redirect, request, session
+from flask import Flask, render_template, redirect, request, session
 
 from controller import *
 from flask_session import Session
@@ -22,4 +22,6 @@ def login():
         password = request.form.get("password")
 
         data = CustomerController.login(email, password)
-        '''
+
+
+app.run()

@@ -23,7 +23,8 @@ class FoodOrderController:
     def edit(cls, id, customer_id, status, datetime, total_amount):
         try:
             da = FoodOrderDa()
-            foodorder = Customer(customer_id, status, datetime, total_amount)
+            customer = CustomerController.find_by_id(customer_id)[1]
+            foodorder = FoodOrder(customer, status, datetime, total_amount)
             foodorder.id = id
             da.edit(foodorder)
             return True, foodorder
