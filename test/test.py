@@ -30,9 +30,14 @@ from model.entity import *
 # print(CustomerController.find_by_email("A@A.com"))
 # print(CustomerController.login("A@A.com","A1238"))
 
+#print(FoodOrderController.save(17, True, datetime.now(), 158.55528))
+#FoodOrderController.edit(9,16,True,datetime.now(),120055)
+#FoodOrderController.remove(9)
+#print(FoodOrderController.find_all())
+#print(FoodOrderController.find_by_id(7))
+#print(FoodOrderController.find_by_customer_id(15))
 
-#print(FoodOrderController.save(16, True, datetime.now(), 158.555252))
-FoodOrderController.edit(8,16,True,datetime.now(),1200)
+
 # MenuController.save("bergurww",100000)
 # MenuController.edit(8,"bergur111",2222)
 # MenuController.remove(8)
@@ -44,3 +49,5 @@ FoodOrderController.edit(8,16,True,datetime.now(),1200)
 #da=FoodOrderDa()
 #foodorder = FoodOrder(15, True, datetime.now(), 2)
 #da.save(foodorder)
+
+print(OrderMenuItemController.save(7,10,10))

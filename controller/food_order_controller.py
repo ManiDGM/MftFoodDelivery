@@ -8,9 +8,10 @@ class FoodOrderController:
     def save(cls, customer_id, status, date_time, total_amount):
         try:
             da = FoodOrderDa()
+            customer = CustomerController.find_by_id(customer_id)[1]
             #print(da.find_by_customer_id(customer_id))
             if not da.find_by_customer_id(customer_id):
-                foodorder = FoodOrder(customer_id, status, date_time, total_amount)
+                foodorder = FoodOrder(customer, status, date_time, total_amount)
                 da.save(foodorder)
                 return True, foodorder
             else:
@@ -53,7 +54,7 @@ class FoodOrderController:
     def find_by_id(cls, id):
         try:
             da = FoodOrderDa()
-            foodorder = da.find_by_id(FoodOrderDa, id)
+            foodorder = da.find_by_id(FoodOrder, id)
             if foodorder:
                 return True, foodorder
             else:
