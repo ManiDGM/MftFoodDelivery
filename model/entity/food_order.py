@@ -17,9 +17,9 @@ class FoodOrder(Base):
     customer = relationship("Customer", back_populates="orders")
     order_item = relationship("OrderMenuItem", back_populates="food_order")
 
-    def __init__(self, customer, status, date_time, total_amount):
-        #self.customer_id = customer_id
-        self.customer = customer
+    def __init__(self, customer_id, status, date_time, total_amount):
+        self.customer_id = customer_id
+        #self.customer = customer
         self.status = status
         self.date_time = date_time
         self.total_amount = total_amount

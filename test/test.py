@@ -1,9 +1,11 @@
 from datetime import datetime
 from controller import *
+from model.da import FoodOrderDa
 from model.da.database import *
 from model.entity import *
 
-# da = DataBaseManager()
+
+#da = DataBaseManager()
 # customer = da.find_by_id(Customer, 12)
 # da.save(customer)
 #
@@ -29,7 +31,7 @@ from model.entity import *
 # print(CustomerController.login("A@A.com","A1238"))
 
 
-print(FoodOrderController.save(15, True, datetime.now(), 158.555252))
+print(FoodOrderController.save(16, True, datetime.now(), 158.555252))
 
 # MenuController.save("bergurww",100000)
 # MenuController.edit(8,"bergur111",2222)
@@ -39,3 +41,6 @@ print(FoodOrderController.save(15, True, datetime.now(), 158.555252))
 # ??????????MenuController.find_by_order_menu()
 
 # MenuController.find_by_item_name("bergurww")
+#da=FoodOrderDa()
+#foodorder = FoodOrder(15, True, datetime.now(), 2)
+#da.save(foodorder)

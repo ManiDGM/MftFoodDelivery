@@ -8,9 +8,8 @@ class OrderMenuItemController:
     def save(cls, food_order_id, menu_item_id, quantity_ordered):
         try:
             da = OrderMenuDa()
-
             if not da.find_by_food_order_id(food_order_id):
-                ordermenuitem = OrderMenu(food_order_id, menu_item_id, quantity_ordered)
+                ordermenuitem = OrderMenuItem(food_order_id, menu_item_id, quantity_ordered)
                 da.save(ordermenuitem)
                 return True, ordermenuitem
             else:
@@ -18,12 +17,35 @@ class OrderMenuItemController:
         except Exception as e:
             return False, str(e)
 
+
+
+    @classmethod
+    def edit(cls, id, food_order_id, menu_item_id, quantity_ordered):
+        try:
+            da = OrderMenuDa()
+            ordermenuitem = Customer(food_order_id, menu_item_id, quantity_ordered)
+            ordermenuitem.id = id
+            da.edit(ordermenuitem)
+            return True, ordermenuitem
+        except Exception as e:
+            e.with_traceback()
+            return False, str(e)
+
+
     @classmethod
     def remove(cls, id):
         try:
             da = OrderMenuDa()
             ordermenuitem = da.find_by_food_order_id(OrderMenuDa, id)
             return True, da.remove(ordermenuitem)
+        except Exception as e:
+            return False, str(e)
+
+    @classmethod
+    def find_all(cls):
+        try:
+            da = OrderMenuDa()
+            return True, da.find_all(OrderMenuItem)
         except Exception as e:
             return False, str(e)
 
