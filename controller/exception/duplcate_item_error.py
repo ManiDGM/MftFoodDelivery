@@ -1,2 +1,2 @@
-class DuplicaateItemError(Exception):
+class DuplicateItemError(Exception):
     pass

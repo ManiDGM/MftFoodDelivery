@@ -1,5 +1,4 @@
 from controller import *
-from model.entity import *
 from model.da import *
 from controller import *
 
@@ -9,8 +8,9 @@ class OrderMenuItemController:
     def save(cls, food_order_id, menu_item_id, quantity_ordered):
         try:
             da = OrderMenuDa()
+
             if not da.find_by_food_order_id(food_order_id):
-                ordermenuitem = OrderMenuDa(food_order_id, menu_item_id, quantity_ordered)
+                ordermenuitem = OrderMenu(food_order_id, menu_item_id, quantity_ordered)
                 da.save(ordermenuitem)
                 return True, ordermenuitem
             else:
