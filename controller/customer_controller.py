@@ -18,7 +18,7 @@ class CustomerController:
             return False, str(e)
 
     @classmethod
-    def edit(cls, id, first_name, last_name, password, email):
+    def edit(cls, id, first_name, last_name, email, password):
         try:
             da = CustomerDa()
             customer = Customer(first_name, last_name, email, password)
