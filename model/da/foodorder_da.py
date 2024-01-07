@@ -1,6 +1,7 @@
 from model.entity import *
 from model.da.database import DataBaseManager, and_
 
+
 class FoodOrderDa(DataBaseManager):
     def find_by_customer_id(self, customer_id):
         self.make_engine()

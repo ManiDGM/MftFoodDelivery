@@ -16,7 +16,7 @@ class OrderMenuItem(Base):
     menu_item = relationship("Menu", back_populates="order_menu")
 
     def __init__(self, food_order, menu_item, quantity_ordered):
-        super().__init__()
+        #super().__init__()
         self.food_order = food_order
         self.menu_item = menu_item
         self.quantity_ordered = quantity_ordered

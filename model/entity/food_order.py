@@ -23,3 +23,4 @@ class FoodOrder(Base):
         self.status = status
         self.date_time = date_time
         self.total_amount = total_amount
+
