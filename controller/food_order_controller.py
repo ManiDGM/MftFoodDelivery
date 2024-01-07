@@ -9,14 +9,14 @@ class FoodOrderController:
         try:
             da = FoodOrderDa()
             customer = CustomerController.find_by_id(customer_id)[1]
-            #print(da.find_by_customer_id(customer_id))
-            if not da.find_by_customer_id(customer_id):
-                foodorder = FoodOrder(customer, status, date_time, total_amount)
-                da.save(foodorder)
-                return True, foodorder
-            else:
-                raise DuplicateCustomerError("Duplicate customer")
+           # print(da.find_by_customer_id(customer_id))
 
+           # if not da.find_by_customer_id(customer_id):
+            foodorder = FoodOrder(customer, status, date_time, total_amount)
+            da.save(foodorder)
+            return True, foodorder
+        # else:
+        #     raise DuplicateCustomerError("Duplicate customer")
         except Exception as e:
             return False, str(e)
 
@@ -24,7 +24,7 @@ class FoodOrderController:
     def edit(cls, id, customer_id, status, datetime, total_amount):
         try:
             da = FoodOrderDa()
-            customer = CustomerController.find_by_id(customer_id)[1]
+            customer = CustomerController.find_by_id(customer_id)[0]
             foodorder = FoodOrder(customer, status, datetime, total_amount)
             foodorder.id = id
             da.edit(foodorder)

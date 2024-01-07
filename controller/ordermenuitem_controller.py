@@ -8,10 +8,10 @@ class OrderMenuItemController:
     def save(cls, food_order_id, menu_item_id, quantity_ordered):
         try:
             da = OrderMenuDa()
-            food_order = FoodOrderController.find_by_id(food_order_id)[1]
+            food_order = FoodOrderController.find_by_id(food_order_id)[0]
             menu_item = MenuController.find_by_id(menu_item_id)[1]
-            #print(da.find_by_food_order_id(food_order_id)), (da.find_by_menu_item_id(food_order_id))
-            if not (da.find_by_food_order_id(food_order_id) and (da.find_by_menu_item_id(menu_item_id))) :
+            #print(da.find_by_food_order_id(food_order_id), (da.find_by_menu_item_id(food_order_id)))
+            if not (da.find_by_food_order_id(food_order_id) or (da.find_by_menu_item_id(menu_item_id))):
                 ordermenuitem = OrderMenuItem(food_order, menu_item, quantity_ordered)
                 da.save(ordermenuitem)
                 return True, ordermenuitem
@@ -24,7 +24,9 @@ class OrderMenuItemController:
     def edit(cls, id, food_order_id, menu_item_id, quantity_ordered):
         try:
             da = OrderMenuDa()
-            ordermenuitem = OrderMenuItem(food_order_id, menu_item_id, quantity_ordered)
+            food_order = FoodOrderController.find_by_id(food_order_id)[
+            menu_item = MenuController.find_by_id(menu_item_id)[1]
+            ordermenuitem = OrderMenuItem(food_order, menu_item, quantity_ordered)
             ordermenuitem.id = id
             da.edit(ordermenuitem)
             return True, ordermenuitem
