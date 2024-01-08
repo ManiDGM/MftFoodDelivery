@@ -1,30 +1,30 @@
 from controller import *
 from model.da import *
 from model.entity import *
-
+from controller.food_order_controller import *
+from controller.menu_controller import *
 
 class OrderMenuItemController:
     @classmethod
     def save(cls, food_order_id, menu_item_id, quantity_ordered):
         try:
             da = OrderMenuDa()
-            food_order = FoodOrderController.find_by_id(food_order_id)[0]
-            menu_item = MenuController.find_by_id(menu_item_id)[1]
-            #print(da.find_by_food_order_id(food_order_id), (da.find_by_menu_item_id(food_order_id)))
-            if not (da.find_by_food_order_id(food_order_id) or (da.find_by_menu_item_id(menu_item_id))):
-                ordermenuitem = OrderMenuItem(food_order, menu_item, quantity_ordered)
+            food_orderr = FoodOrderController.find_by_id(food_order_id)[1]
+            menu_itemm = MenuController.find_by_id(menu_item_id)[1]
+            # print(da.find_by_food_order_id(food_order_id), (da.find_by_menu_item_id(food_order_id)))
+            if not (da.find_by_food_order_id(food_order_id) and (da.find_by_menu_item_id(menu_item_id))):
+                ordermenuitem = OrderMenuItem(food_orderr, menu_itemm, quantity_ordered)
                 da.save(ordermenuitem)
                 return True, ordermenuitem
             else:
                 raise DuplicateNameError("DuplicateNameError")
         except Exception as e:
             return False, str(e)
-
     @classmethod
     def edit(cls, id, food_order_id, menu_item_id, quantity_ordered):
         try:
             da = OrderMenuDa()
-            food_order = FoodOrderController.find_by_id(food_order_id)[
+            food_order = FoodOrderController.find_by_id(food_order_id)[1]
             menu_item = MenuController.find_by_id(menu_item_id)[1]
             ordermenuitem = OrderMenuItem(food_order, menu_item, quantity_ordered)
             ordermenuitem.id = id
@@ -38,7 +38,7 @@ class OrderMenuItemController:
     def remove(cls, id):
         try:
             da = OrderMenuDa()
-            ordermenuitem = da.find_by_food_order_id(OrderMenuItem, id)
+            ordermenuitem = da.find_by_id(OrderMenuItem, id)
             return True, da.remove(ordermenuitem)
         except Exception as e:
             return False, str(e)

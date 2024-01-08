@@ -1,17 +1,26 @@
 from datetime import datetime
 from controller import *
+from model.da import OrderMenuDa, FoodOrderDa
 from model.da.customer_da import CustomerDa
 from model.da.database import *
 from model.entity import *
 
-#da = CustomerDa()
+# da = CustomerDa()
 
 # menuorder=da.find_by_id(OrderMenuItem,10)
-#x = da.find_by_id(Customer, 19)
-#print(x.id)
+# x = da.find_by_id(Customer, 19)
+# print(x.id)
 # customer = da.find_by_id(Customer, 12)
 # da.save(customer)
-#
+# da=OrderMenuDa()
+# x=da.find_by_food_order_id(11)
+# print(x[0])
+da = OrderMenuDa()
+# da=FoodOrderDa()
+# x=da.find_by_id(FoodOrder,14)
+# print(x)
+# x=da.find_by_food_order_id(14)
+# print(x)
 ##
 # order = FoodOrder(customer, True, datetime.now(), 1000)
 # da.save(order)
@@ -24,7 +33,7 @@ from model.entity import *
 #
 # order_menu_item=OrderMenuIte',m(order,menuitem,10)
 # da.save(order_menu_ite'ahmadm)'
-#CustomerController.save("ahmaaaaeefd","merfssbjah","A@A54.com","jA123")
+# CustomerController.save("ahmaaaaeefd","merfssbjah","A@A54.com","jA123")
 # CustomerController.save("mobinaaaa","rou","A@Ad.com","A12dd3")
 
 # print( CustomerController.save("ahmadrrt","messbah","A@Arrr.com","A123"))
@@ -43,7 +52,7 @@ from model.entity import *
 
 # print(FoodOrderController.find_by_customer_id(15))
 
-MenuController.save("bergurwwmrftf",100000)
+# MenuController.save("bergurwwmrftf",100000)
 # MenuController.edit(8,"bergur111",2222)
 # MenuController.remove(8)
 # MenuController.find_all()
@@ -56,4 +65,31 @@ MenuController.save("bergurwwmrftf",100000)
 # da.save(foodorder)
 
 
-print(OrderMenuItemController.save(11,12,10))
+# print(OrderMenuItemController.save(11,12,10))
+# print(OrderMenuItemController.save(13,10,5))
+# CustomerController.save("amirali","alipounr","a@ajli.com","fhhrgrgr")
+# MenuController.save("pitzzza",20)
+# FoodOrderController.save(20,1,datetime.now(),1521)
+#print(OrderMenuItemController.save(11, 13, 7))
+#print(OrderMenuItemController.edit(9,11,10,9))
+#da=FoodOrderDa()
+#food_order = FoodOrderController.find_by_id(11)
+#print(food_order[0])
+
+#print(OrderMenuItemController.save(13,10,10))
+#print(OrderMenuItemController.edit(10,13,8,8))
+#print(OrderMenuItemController.remove(9))
+#print(OrderMenuItemController.find_all())
+#print(OrderMenuItemController.find_by_id(10))
+#print(OrderMenuItemController.find_by_menu_item_id(8))
+print(OrderMenuItemController.find_by_food_order_id(10))
+
+#menu_itemm = MenuController.find_by_id(1)
+#print(menu_itemm[1])
+
+#x = FoodOrderController.find_by_id(1)
+#print(x[1])
+
+#menu_iteam=MenuController.find_by_id(10)
+#print(menu_iteam[0])
+
