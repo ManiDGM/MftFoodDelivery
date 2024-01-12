@@ -19,6 +19,7 @@ class FoodOrder(Base):
 
     def __init__(self, customer, status, date_time, total_amount):
         self.customer = customer
+        #self.customer = customer
         self.status = status
         self.date_time = date_time
         self.total_amount = total_amount
