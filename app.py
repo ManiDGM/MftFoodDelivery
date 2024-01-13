@@ -25,16 +25,9 @@ def service():
 def shop():
     return render_template("shop.html")
 
-@app.route("/")
+@app.route("/blog")
 def blog():
     return render_template("blog.html")
-
-
-
-
-
-
-
 
 
 @app.route("/home",methods=["POST", "GET"])
@@ -58,11 +51,6 @@ def manageproduct():
     return render_template("index.html", orders=CustomerController.find_by_customer_id(session.get("customer_id"))[1].orders)
 
 
-
-
-
-
-
 @app.route("/login", methods=["POST", "GET"])
 def login():
     message = ""
@@ -79,7 +67,7 @@ def login():
 
 @app.route("/customer", methods=["POST", "GET", "DELETE"])
 def customer():
-    if not session.get("username"):
+    if not session.get("email"):
         return render_template("login.html")
 
     if request.method == "POST":
@@ -94,6 +82,12 @@ def customer():
     # return data, 204
     return render_template("customer.html", profile=CustomerController.find_by_email(session.get("email"))[1])
 
+@app.route("/food_order",methods=["POST","GET"])
+def food_order():
+    if not session.get("customer"):
+        return render_template("home")
+
+
 
 @app.route("/signup", methods=["POST", "GET"])
 def signup():
@@ -106,10 +100,7 @@ def signup():
             request.form.get("email"),
             request.form.get("password"))
 
-
-
         return render_template("login.html")
-
 
     return render_template("signup.html")
 
@@ -120,13 +111,15 @@ def search():
     return results
 
 
-
-
-
-
 @app.route("/forget")
 def forget():
     return render_template("forget-password.html")
+
+@app.route("/logout")
+def logout():
+    session["username"] = None
+    return redirect("/")
+    return render_template("login.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
