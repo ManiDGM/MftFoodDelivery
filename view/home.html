@@ -50,11 +50,16 @@
                                     <thead>
                                         <th>Date</th>
                                         <th>Order Number</th>
-                                        <th>Customer Name</th>
                                         <th>Total Cost</th>
                                     </thead>
                                     <tbody>
-
+                                        {% for order in orders%}
+                                        <tr>
+                                            <td>{{order.date_time}}</td>
+                                            <td>{{order.id}}</td>
+                                            <td>{{order.total_amount}}</td>
+                                        </tr>
+                                        {% endfor %}
                                     </tbody>
                                 </table>
                             </div>

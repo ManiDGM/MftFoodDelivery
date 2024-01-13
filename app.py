@@ -5,12 +5,12 @@ from flask_session import Session
 
 app = Flask(__name__, template_folder="view", static_folder="view/static")
 app.config["SESSION_PERMANENT"] = False
-app.config["SESSION_PERMANENT"] = "filesystem"
+app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
 @app.route("/")
 def index():
-    return render_template("login.html")
+    return render_template("signup.html")
 @app.route("/index")
 def back():
     return render_template("index.html")
@@ -32,7 +32,8 @@ def blog():
 
 @app.route("/home",methods=["POST", "GET"])
 def home():
-    return render_template("home.html")
+    status, orders = FoodOrderController.find_by_customer_id(session.get("id"))
+    return render_template("home.html", orders = orders)
 
 @app.route("/order", methods=["POST", "GET"])
 def order():
@@ -55,33 +56,34 @@ def manageproduct():
 def login():
     message = ""
     if request.method == "POST":
-        username = request.form.get("username")
+        email = request.form.get("email")
         password = request.form.get("password")
-        status, data = CustomerController.login(username, password)
+        status, data = CustomerController.login(email, password)
         if status:
-            session["username"] = username
-            return render_template("login.html", profile=data)
+            session["email"] = email
+            session["id"] = data.id
+            return render_template("index.html", profile=data)
         else:
             message = data
-    return render_template("index.html", message=message)
+    return render_template("login.html", message=message)
 
 @app.route("/customer", methods=["POST", "GET", "DELETE"])
 def customer():
-    if not session.get("email"):
-        return render_template("login.html")
+    # if not session.get("email"):
+    #     return render_template("login.html")
 
     if request.method == "POST":
         first_name = request.form.get("first_name")
-        last_family = request.form.get("last_family")
+        last_family = request.form.get("last_name")
         email = request.form.get("email")
         password = request.form.get("password")
         status, data = CustomerController.save(first_name,last_family,email, password)
+        print(status,data)
     elif request.method == "DELETE":
         CustomerController.remove(request.args.get("id"))
 
     # return data, 204
-    return render_template("customer.html", profile=CustomerController.find_by_email(session.get("email"))[1])
-
+    return render_template("signup.html", customer=CustomerController.find_all())
 @app.route("/food_order",methods=["POST","GET"])
 def food_order():
     if not session.get("customer"):
@@ -89,20 +91,20 @@ def food_order():
 
 
 
-@app.route("/signup", methods=["POST", "GET"])
-def signup():
-    if request.method == "POST":
+#@app.route("/signup", methods=["POST", "GET"])
+#def signup():
+ #   if request.method == "POST":
         # if request.form.get("password") == request.form.get("repeat_password"):
 
-        status, data = CustomerController.save(
-            request.form.get("name"),
-            request.form.get("family"),
-            request.form.get("email"),
-            request.form.get("password"))
+  #      status, data = CustomerController.save(
+   #         request.form.get("name"),
+    #        request.form.get("family"),
+     #       request.form.get("email"),
+      #      request.form.get("password"))
 
-        return render_template("login.html")
+       # return render_template("login.html")
 
-    return render_template("signup.html")
+    #return render_template("signup.html")
 
 @app.route("/search")
 def search():

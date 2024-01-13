@@ -22,20 +22,24 @@
 <div class="container forms">
     <div class="form login">
         <div class="form-content">
-            <header>Sign Up</header>
-            <form action="/signup">
+            <header>Customer</header>
+            <form action="/customer" method="post" class="user">
                 <div class="field input-field">
-                    <input type="text" class="form-control form-control-user" name="username"
-                                               id="exampleInputEmail" placeholder="Enter Username">
+                    <input type="text" class="form-control form-control-user" name="first_name"
+                                               id="exampleInputName" placeholder="Enter First_name">
                 </div>
 
                 <div class="field input-field">
-                    <input type="password" class="form-control form-control-user" name="password"
-                                               id="exampleInputPassword" placeholder="Enter Password">
+                    <input type="text" class="form-control form-control-user" name="last_name"
+                                               id="exampleInputLast" placeholder="Enter Last_name">
                 </div>
 
                 <div class="field input-field">
-                    <input type="password" placeholder="Re enter password" class="password">
+                    <input type="text" name="email" placeholder="Enter Email" class="email" id="exampleInputEmail">
+
+                </div>
+                 <div class="field input-field">
+                    <input type="password" name="password" placeholder="Enter Password" class="password">
                     <i class="bx bx-hide eye-icon"></i>
                 </div>
 
@@ -57,5 +61,5 @@
 <script src="static/JavaScript/jquery-3.7.1.min.js"></script>
 <script src="static/JavaScript/bootstrap/bootstrap.bundle.js"></script>
 <script src="static/JavaScript/fontawesome/all.js"></script>
-<script src="static/JavaScript/index.js"></script
+<script src="static/JavaScript/index.js"></script>
 </html>
